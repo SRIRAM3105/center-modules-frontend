@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 // Base URL for all API calls
@@ -112,6 +111,33 @@ export const communityAPI = {
       return response.data;
     } catch (error) {
       return handleApiError(error, 'Error updating allocation:');
+    }
+  },
+
+  createCommunity: async (communityData) => {
+    try {
+      const response = await apiClient.post('/communities', communityData);
+      return response.data;
+    } catch (error) {
+      return handleApiError(error, 'Error creating community:');
+    }
+  },
+
+  searchCommunities: async (location) => {
+    try {
+      const response = await apiClient.get('/communities/search', { params: { location } });
+      return response.data;
+    } catch (error) {
+      return handleApiError(error, 'Error searching communities:');
+    }
+  },
+
+  joinCommunity: async (communityId) => {
+    try {
+      const response = await apiClient.post(`/communities/${communityId}/join`);
+      return response.data;
+    } catch (error) {
+      return handleApiError(error, 'Error joining community:');
     }
   }
 };
