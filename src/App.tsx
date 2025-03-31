@@ -11,7 +11,6 @@ import DataCollection from "@/pages/DataCollection";
 import ProviderMatching from "@/pages/ProviderMatching";
 import Payment from "@/pages/Payment";
 import Monitoring from "@/pages/Monitoring";
-import Profile from "@/pages/Profile";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,7 +29,6 @@ const App = () => (
             <Route path="/provider-matching" element={<ProviderMatching />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/monitoring" element={<Monitoring />} />
-            <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
