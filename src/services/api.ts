@@ -104,6 +104,15 @@ export const communityAPI = {
     } catch (error) {
       return handleApiError(error, `Error fetching community with ID ${id}:`);
     }
+  },
+  
+  updateAllocation: async (allocation) => {
+    try {
+      const response = await apiClient.post('/communities/allocation', { allocation });
+      return response.data;
+    } catch (error) {
+      return handleApiError(error, 'Error updating allocation:');
+    }
   }
 };
 
@@ -373,4 +382,3 @@ export const paymentAPI = {
     }
   }
 };
-
