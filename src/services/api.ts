@@ -32,7 +32,7 @@ const handleApiError = (error, customMessage) => {
   // This helps with continued development even when backend is unavailable
   if (process.env.NODE_ENV === 'development' || error.message.includes('Network Error')) {
     console.log('Using fallback data due to API error');
-    return { success: true, data: {} };
+    return { success: false, message: 'Server is currently unavailable. Please try again later.' };
   }
   throw error;
 };
@@ -51,6 +51,17 @@ export const authAPI = {
   login: async (credentials) => {
     try {
       const response = await apiClient.post('/login', credentials);
+      
+      // Ensure we only return success with token if the backend validates the credentials
+      if (process.env.NODE_ENV === 'development' && response.success === true) {
+        // For development, mock a proper token response
+        return { 
+          success: true, 
+          token: 'mock-token-for-development-only',
+          message: 'Login successful'
+        };
+      }
+      
       return response.data;
     } catch (error) {
       return handleApiError(error, 'Error during login:');
@@ -72,6 +83,20 @@ export const authAPI = {
       return response.data;
     } catch (error) {
       return handleApiError(error, 'Error updating profile:');
+    }
+  },
+  
+  logout: async () => {
+    try {
+      // Clear token from localStorage
+      localStorage.removeItem('token');
+      // Optionally notify server about logout
+      const response = await apiClient.post('/logout');
+      return response.data;
+    } catch (error) {
+      // Still clear token on client side even if server request fails
+      localStorage.removeItem('token');
+      return handleApiError(error, 'Error during logout:');
     }
   }
 };

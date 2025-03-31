@@ -95,11 +95,11 @@ const Registration = () => {
           description: "You can now log in with your credentials",
           variant: "default",
         });
-        // Store the token if available
-        if (response.token) {
-          localStorage.setItem('token', response.token);
-        }
-        navigate('/data-collection');
+        // Reset form after successful registration
+        signupForm.reset();
+        // Switch to login tab
+        setActiveTab('login');
+        // We don't store token or navigate automatically after signup
       } else {
         toast({
           title: "Registration failed",
@@ -126,17 +126,28 @@ const Registration = () => {
         password: data.password
       });
       
-      if (response.success) {
-        toast({
-          title: "Login successful",
-          description: "Welcome back!",
-          variant: "default",
-        });
-        // Store the token
-        if (response.token) {
-          localStorage.setItem('token', response.token);
+      if (response.success && response.token) {
+        // Only store token and redirect after proper login
+        localStorage.setItem('token', response.token);
+        
+        // Get user profile after login
+        const profileResponse = await authAPI.getProfile();
+        
+        if (profileResponse.success) {
+          toast({
+            title: "Login successful",
+            description: `Welcome back, ${profileResponse.data.name || 'User'}!`,
+            variant: "default",
+          });
+          navigate('/data-collection');
+        } else {
+          toast({
+            title: "Login successful",
+            description: "Welcome back!",
+            variant: "default",
+          });
+          navigate('/data-collection');
         }
-        navigate('/data-collection');
       } else {
         toast({
           title: "Login failed",
