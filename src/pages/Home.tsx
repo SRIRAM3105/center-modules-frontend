@@ -68,6 +68,110 @@ const Home = () => {
         </div>
       </Section>
 
+      <Section>
+        <div className="text-center max-w-4xl mx-auto mb-16 animate-slide-up">
+          <h2 className="section-title">About SolarCommunity Platform</h2>
+          <p className="section-subtitle mb-8">
+            Transforming how communities adopt solar energy through collaboration and technology
+          </p>
+        </div>
+
+        <div className="grid gap-12 lg:grid-cols-2 items-start">
+          <div className="space-y-6 animate-slide-in-right">
+            <div>
+              <h3 className="text-2xl font-semibold mb-4 text-solar-600">What We Do</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                SolarCommunity is a comprehensive web platform that connects neighbors to create community solar energy projects. 
+                We streamline the entire process from initial interest to installation and monitoring, making solar energy more 
+                accessible and affordable through community collaboration.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold mb-4 text-eco-600">Our Mission</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                To democratize solar energy by enabling communities to leverage collective buying power, share resources, 
+                and make sustainable energy choices together. We believe that when neighbors work together, they can achieve 
+                greater environmental impact while reducing individual costs.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold mb-4 text-solar-600">Why Community Solar?</h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-solar-500 mt-2 flex-shrink-0"></div>
+                  <span><strong>Lower Costs:</strong> Bulk purchasing power reduces installation costs for everyone</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-eco-500 mt-2 flex-shrink-0"></div>
+                  <span><strong>Shared Resources:</strong> Pool knowledge, experiences, and maintenance responsibilities</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-solar-500 mt-2 flex-shrink-0"></div>
+                  <span><strong>Greater Impact:</strong> Larger installations have bigger environmental benefits</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-eco-500 mt-2 flex-shrink-0"></div>
+                  <span><strong>Community Building:</strong> Strengthen neighborhood bonds through shared sustainability goals</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="space-y-6 animate-slide-in-left">
+            <div className="bg-gradient-to-br from-solar-50 to-eco-50 dark:from-solar-950/20 dark:to-eco-950/20 p-6 rounded-2xl border border-solar-200/50 dark:border-solar-800/50">
+              <h3 className="text-xl font-semibold mb-4 text-solar-700 dark:text-solar-300">Platform Features</h3>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <h4 className="font-medium text-foreground">Community Building</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• User registration & profiles</li>
+                    <li>• Community creation & discovery</li>
+                    <li>• Location-based matching</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-medium text-foreground">Smart Analysis</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Solar potential assessment</li>
+                    <li>• Energy consumption tracking</li>
+                    <li>• Cost-benefit analysis</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-medium text-foreground">Provider Network</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Certified installer directory</li>
+                    <li>• Quote comparison system</li>
+                    <li>• Community voting process</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-medium text-foreground">Financial Tools</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Secure payment processing</li>
+                    <li>• Fair cost distribution</li>
+                    <li>• Real-time tracking</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-eco-50 to-solar-50 dark:from-eco-950/20 dark:to-solar-950/20 p-6 rounded-2xl border border-eco-200/50 dark:border-eco-800/50">
+              <h3 className="text-xl font-semibold mb-3 text-eco-700 dark:text-eco-300">Built With Modern Technology</h3>
+              <div className="flex flex-wrap gap-2">
+                {["React", "TypeScript", "Tailwind CSS", "shadcn-ui", "React Query", "React Hook Form"].map((tech) => (
+                  <span key={tech} className="px-3 py-1 bg-white/80 dark:bg-gray-800/80 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       <Section className="bg-gradient-to-r from-solar-500/10 to-eco-500/10">
         <div className="grid gap-12 md:grid-cols-2 items-center">
           <div className="animate-slide-in-right">
