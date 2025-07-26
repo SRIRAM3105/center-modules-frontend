@@ -53,7 +53,7 @@ export const authAPI = {
       const response = await apiClient.post('/login', credentials);
       
       // Ensure we only return success with token if the backend validates the credentials
-      if (process.env.NODE_ENV === 'development' && response.success === true) {
+      if (process.env.NODE_ENV === 'development' && response.data?.success === true) {
         // For development, mock a proper token response
         return { 
           success: true, 
